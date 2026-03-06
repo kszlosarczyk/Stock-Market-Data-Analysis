@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+.ipynb
+
+# IDE settings
+.vscode/
+.idea/
+
+# Power BI files
+*.pbix
+
+#Other
+.env
+.db
+.log

@@ -1,6 +1,5 @@
 import os
 from typing import Optional
-
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import seaborn as sns

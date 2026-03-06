@@ -1,10 +1,8 @@
 import time
 from typing import List
-
 import pandas as pd
 import yfinance as yf
 from tqdm import tqdm
-
 from config import DOWNLOAD_PAUSE
 
 

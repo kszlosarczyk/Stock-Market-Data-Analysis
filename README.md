@@ -51,24 +51,28 @@ The project aims to:
 
 # 4. Project Structure
 
-stock-analysis/
+stock-market-analysis/
 ├── .env
 ├── config.py
 ├── main.py
 ├── requirements.txt
+├── stock analysis.ipynb
 │
 ├── data/
+│   ├── BBG list_txt
 │
 ├── output/
 │   └── plots/
 │
+├── powerbi/
+│   └── dashboards.pdf
+│
 ├── src/
+│   ├── __init__.py
 │   ├── data_loader.py
 │   ├── data_transformation.py
 │   ├── export_to_files.py
 │   └── plots.py
-│
-└── notebooks/
 
 # 5. Visualizations
 
@@ -77,24 +81,38 @@ The project generates charts for each ticker including:
 - Daily returns
 - Volatility
 - Bollinger Bands
-- Histogram of returns
-- Correlation matrix
-- Heatmap
 
 All plots are saved in:
 output/plots/
 
-# 6. How to Run the Project
+# 6. Power BI Dashboard
 
-## 6.1 Create Environment
+A Power BI dashboard has been created to visualize the stock market data and analytical signals.
+
+The dashboard is based on the CSV and Excel outputs from the project.
+
+It provides interactive charts for:
+- Price trends with SMA/EMA overlays
+- Technical indicators (RSI, Bollinger Bands)
+- Signal analysis and trade recommendations
+
+Note: The .pbix file is not included in this repository. 
+Use the exported CSV/Excel files from output/ to load the dashboard in Power BI Desktop.
+
+This allows stakeholders to explore the data interactively without sharing the raw Power BI project file.
+
+# 7. How to Run the Project
+
+## 7.1 Create Environment
+
 python -m venv venv
 Activate the environment.
 
-## 6.2 Install Dependencies
+## 7.2 Install Dependencies
 
 pip install -r requirements.txt
 
-## 6.3 Configure Environment Variables
+## 7.3 Configure Environment Variables
 
 Example .env file:
 
@@ -103,11 +121,11 @@ TICKERS_FILE=data/tickers.txt
 OUTPUT_DIR=output
 DOWNLOAD_PAUSE=1
 
-## 6.4 Run the Project
+## 7.4 Run the Project
 
 python main.py
 
-## 6.5 Output Files
+## 7.5 Output Files
 
 Results will be generated in:
 
@@ -119,7 +137,7 @@ Including:
 - Excel reports
 - analytical plots
 
-# 7. Analytical Notebook
+# 8. Analytical Notebook
 
 The directory contains:
 stock_analysis.ipynb
@@ -139,8 +157,9 @@ This notebook presents a full analysis of stock market data retrieved by the pro
 
 This notebook ensures that all processed data, indicators, and visualizations can be easily explored and validated.
 
-# 8. Technology Stack
+# 9. Technology Stack
 
+Power BI
 Python
 pandas
 numpy
@@ -152,6 +171,6 @@ xlsxwriter
 python-dotenv
 Jupyter Notebook
 
-# 9. License
+# 10. License
 
 MIT License

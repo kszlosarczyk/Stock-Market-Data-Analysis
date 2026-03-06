@@ -1,8 +1,6 @@
 import os
 from datetime import datetime
-
 import pandas as pd
-
 from config import OUTPUT_DIR
 
 
@@ -24,7 +22,7 @@ def save_outputs(df: pd.DataFrame) -> None:
     df_to_save.to_csv(
         f"{OUTPUT_DIR}/stock_history_{today}.csv",
         index=False,
-        encoding="utf-8-sig",
+        encoding="utf-8",
     )
 
     with pd.ExcelWriter(

@@ -1,103 +1,145 @@
 # Stock Market Analysis
 
-Python-based stock market analytics project .
-The project focuses on data extraction, indicator calculation, exploratory analysis and visualization.
+# 1. Project Overview
 
-# 1. Project Goal
+This project is a Python-based financial data analysis pipeline that retrieves stock market data, calculates technical indicators, generates trading signals, and produces analytical visualizations.
 
-The project aims to: 
-• Retrieve stock market data for configurable tickers
-• Calculate classic financial indicators (SMA, EMA, MACD, RSI, Bollinger Bands, Volatility)
-• Generate BUY/SELL analytical signals
-• Export results to CSV, Excel
-• Produce visualizations saved to output/plots
-• Demonstrate a clean ETL/EDA workflow in Python
+The project demonstrates a clean workflow combining data extraction, financial analysis, and visualization.
 
-# 2. Project Structure
+# 2. Project Goals
 
-stock-analysis/
-• .env
-• config.py
-• main.py
-• requirements.txt
-• data/
-• output/
-– plots/
-• src/
-– data_loader.py
-– data_transformation.py
-– export_to_files.py
-– plots.py
-• notebooks/
+The project aims to:
+- Retrieve stock market data for configurable tickers
+- Calculate common technical indicators
+- Generate BUY / SELL analytical signals
+- Export processed data to analytical formats
+- Produce visualizations supporting exploratory analysis
 
 # 3. Features
 
-Data Retrieval
-• Tickers loaded from TXT (comma-separated or line-separated)
-• Data retrieved using Yahoo Finance API
-• tqdm progress bar
-• Automatic merge into one consolidated dataset
+- Data Retrieval
+- Tickers loaded from TXT file
+- Data retrieved using the Yahoo Finance API
+- Automatic merge into a consolidated dataset
+- tqdm progress bar for download tracking
+- Technical Indicators
+- The following indicators are calculated:
+- Moving Averages
+- SMA: 7 / 30 / 50 / 100
+- EMA: 12 / 20 / 26 / 50
+- Momentum & Volatility
+- Daily Returns
+- 30-day Volatility
+- RSI (14)
+- Trend Indicators
+- MACD
+- Signal Line
+- Histogram
+- Bands
+- Bollinger Bands
+- Signal Generation
+- Trading signals are generated using:
+- Moving Average Crossovers
+- MACD signals
+- Bollinger Band signals
+- Signals are aggregated into a Trade Score and classified as:
+	- STRONG BUY
+	- BUY
+	- NEUTRAL
+	- SELL
+	- STRONG SELL
 
-Indicators
-The following metrics are calculated: • SMA: 7 / 30 / 50 / 100
-• EMA: 12 / 20 / 26 / 50
-• Daily Returns
-• 30-day Volatility
-• RSI 14
-• MACD, Signal, Histogram
-• Bollinger Bands
+# 4. Project Structure
 
-Signal Generation
-• Moving Average Cross Buy/Sell
-• MACD Buy/Sell
-• Bollinger Buy/Sell
-• Aggregated Trade Score
-• Label: STRONG BUY / BUY / NEUTRAL / SELL / STRONG SELL
+stock-analysis/
+├── .env
+├── config.py
+├── main.py
+├── requirements.txt
+│
+├── data/
+│
+├── output/
+│   └── plots/
+│
+├── src/
+│   ├── data_loader.py
+│   ├── data_transformation.py
+│   ├── export_to_files.py
+│   └── plots.py
+│
+└── notebooks/
 
-Export
-• CSV
-• Excel
+# 5. Visualizations
 
-Visualizations
-Charts generated per ticker: • SMA / EMA
-• Daily Returns
-• Volatility
-• Bollinger Bands
-• Histogram of daily returns
-• Correlation matrix
-• Heatmap
+The project generates charts for each ticker including:
+- SMA / EMA trends
+- Daily returns
+- Volatility
+- Bollinger Bands
+- Histogram of returns
+- Correlation matrix
+- Heatmap
 
-All plots are saved into: output/plots/
+All plots are saved in:
+output/plots/
 
-Notebook
-Folder notebooks/ contains a complete analysis walkthrough: 
-• data loading
-• EDA
-• interpretation of indicators
-• notes
+# 6. How to Run the Project
 
-# 4. How to Run the Project
+## 6.1 Create Environment
+python -m venv venv
+Activate the environment.
 
-## 4.1. Create environment
+## 6.2 Install Dependencies
 
-## 4.2. pip install -r requirements.txt
+pip install -r requirements.txt
 
-## 4.3. Configure .env
+## 6.3 Configure Environment Variables
 
-Example: 
+Example .env file:
+
 PERIOD=200d
-TICKERS_FILE=data/BBG list.txt
+TICKERS_FILE=data/tickers.txt
 OUTPUT_DIR=output
 DOWNLOAD_PAUSE=1
 
-## 4.4. Run python main.py
+## 6.4 Run the Project
 
-## 4.5. Results appear in: 
+python main.py
+
+## 6.5 Output Files
+
+Results will be generated in:
 
 output/
 output/plots/
 
-# 5. Technology Stack
+Including:
+- CSV datasets
+- Excel reports
+- analytical plots
+
+# 7. Analytical Notebook
+
+The directory contains:
+stock_analysis.ipynb
+
+This notebook presents a full analysis of stock market data retrieved by the project script. It covers:
+- Loading historical stock data from the latest CSV file in output/
+- Quick data exploration (EDA)
+- info and describe
+- list of available tickers
+- Charts of processed indicators for each ticker
+- Price with SMA / EMA overlays
+- Daily Returns histogram
+- Volatility trends
+- Correlation analysis between indicators (Close, Volume, Daily Return, Volatility, RSI, MACD)
+- Final conclusions summarizing data quality and insights
+- Demonstrates a full analytical workflow from ETL to visualization
+
+This notebook ensures that all processed data, indicators, and visualizations can be easily explored and validated.
+
+# 8. Technology Stack
 
 Python
 pandas
@@ -107,8 +149,9 @@ seaborn
 yfinance
 tqdm
 xlsxwriter
-dotenv
+python-dotenv
+Jupyter Notebook
 
-# 6. License
+# 9. License
 
 MIT License
